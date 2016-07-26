@@ -7,6 +7,10 @@ html
         script(src='/javascripts/lib/zepto.js')
         script(src='/javascripts/lib/paper.js')
         script(src='/javascripts/canvas.js', type="text/paperscript", canvas="myCanvas")
+        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js')
+        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
+        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
     body
     div(id="controls")
         div(id="userCountWrapper", style="opacity:0") artists:
@@ -22,4 +26,7 @@ html
         div(data-color="255,255,255", class="color", style="background:rgb(255,255,255);")
         label Opacity
             input(type="range", min="0", max="255", value="200", id="opacity")
-canvas(id="myCanvas", resize="true")
+        div(id=container)
+            canvas(id="myCanvas", resize="true")
+            div(id="firepad")
+            div(id="opentokVideos")
