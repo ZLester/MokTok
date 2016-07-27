@@ -10,7 +10,7 @@ var express = require('express'),
   socket = require('socket.io'),
   io = socket.listen(server);
 */
-
+// require('./env.js');
 var express = require('express');
 var app = express();
 var socket = require('socket.io');
@@ -28,7 +28,7 @@ var port = 3000;
 
 
 
-/** Below be dragons 
+/** Below be dragons
  *
  */
 
@@ -84,18 +84,16 @@ io.sockets.on('connection', function (socket) {
 
   // EVENT: User stops drawing something
   socket.on('draw:progress', function (uid, co_ordinates) {
-    
+
     io.sockets.emit('draw:progress', uid, co_ordinates)
 
   });
 
   // EVENT: User stops drawing something
   socket.on('draw:end', function (uid, co_ordinates) {
-    
+
     io.sockets.emit('draw:end', uid, co_ordinates)
 
   });
-  
+
 });
-
-

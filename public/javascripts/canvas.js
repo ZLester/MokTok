@@ -1,6 +1,6 @@
 tool.minDistance = 10;
 tool.maxDistance = 45;
-
+view.viewSize = new Size(600, 600);
 
 // Initialise Socket.io
 var socket = io.connect('/');
@@ -56,7 +56,7 @@ update_active_color();
 
 
 
-// --------------------------------- 
+// ---------------------------------
 // DRAWING EVENTS
 
 
@@ -82,13 +82,13 @@ function onMouseDown(event) {
 }
 
 function onMouseDrag(event) {
-    
+
     var step = event.delta / 2;
     step.angle += 90;
-    
+
     var top = event.middlePoint + step;
     var bottom = event.middlePoint - step;
-    
+
     path.add(top);
     path.insert(0, bottom);
     path.smooth();
@@ -117,7 +117,7 @@ function onMouseDrag(event) {
 
 
 function onMouseUp(event) {
-   
+
     // Close the users path
     path.add(event.point);
     path.closed = true;
@@ -143,7 +143,7 @@ function onMouseUp(event) {
 
 
 
-// --------------------------------- 
+// ---------------------------------
 // CONTROLS EVENTS
 
 var $color = $('.color');
@@ -172,7 +172,7 @@ $opacity.on('change', function() {
 
 
 
-// --------------------------------- 
+// ---------------------------------
 // SOCKET.IO EVENTS
 
 
@@ -185,7 +185,7 @@ socket.on('draw:progress', function( artist, data ) {
 
     }
 
-}); 
+});
 
 socket.on('draw:end', function( artist, data ) {
 
@@ -194,7 +194,7 @@ socket.on('draw:end', function( artist, data ) {
        end_external_path( JSON.parse( data ), artist );
     }
 
-}); 
+});
 
 socket.on('user:connect', function(user_count) {
     update_user_count( user_count );
@@ -209,7 +209,7 @@ socket.on('user:disconnect', function(user_count) {
 
 
 
-// --------------------------------- 
+// ---------------------------------
 // SOCKET.IO EVENT FUNCTIONS
 
 
@@ -285,5 +285,3 @@ progress_external_path = function( points, artist ) {
 
 
 };
-
-

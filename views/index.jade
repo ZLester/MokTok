@@ -2,32 +2,37 @@ doctype
 html
     head
         title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='env.js')
+        <!-- Bootstrap -->
+        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js')
+        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
+        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+
+
+
         script(src='/socket.io/socket.io.js')
         script(src='/javascripts/lib/zepto.js')
         script(src='/javascripts/lib/paper.js')
-        script(src='/javascripts/canvas.js', type="text/paperscript", canvas="myCanvas")
+        script(src='/javascripts/canvas.js', type='text/paperscript', canvas='myCanvas')
+
 
         <!-- Firebase -->
         script(src='https://cdn.firebase.com/js/client/2.3.2/firebase.js')
 
         <!-- CodeMirror -->
         script(src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.js')
-        link(rel='stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.css')
 
         <!-- Firepad -->
-        link(rel='stylesheet" href="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css')
+        link(rel='stylesheet', href='https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css')
         script(src='https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js')
-        script(src='/javascripts/firepad.js')
 
         <!-- TokBox -->
+        script(type='text/javascript' src='https://swww.tokbox.com/webrtc/v2.0/js/TB.min.js')
         script(src='javascripts/videoChatTokBox.js')
+        link(rel='stylesheet', href='/stylesheets/style.css')
 
-        <!-- Bootstrap -->
-        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-        script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js')
-        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
-        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
     body
     div(id="controls")
         div(id="userCountWrapper", style="opacity:0") artists:
@@ -43,7 +48,9 @@ html
         div(data-color="255,255,255", class="color", style="background:rgb(255,255,255);")
         label Opacity
             input(type="range", min="0", max="255", value="200", id="opacity")
-        div(id=container)
-            canvas(id="myCanvas", resize="true")
-            div(id="firepad")
-            div(id="opentokVideos")
+    div(id="container")
+        canvas(id="myCanvas", resize="true")
+        div(id="firepad")
+        div(id="opentokVideos")
+    script(src='/javascripts/tokbox.js')
+    script(src='/javascripts/firepad.js')
